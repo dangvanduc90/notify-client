@@ -12,6 +12,10 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -77,10 +81,13 @@
     </div>
 <script>
     var socket = io('http://localhost:3000/');
-    socket.on('receive-register-laravel', function (data) {
+    socket.on('welcome-room', function (data) {
+        console.log(data);
+    });
+    socket.on('big-announcement', function (data) {
+        console.log(data);
         $("#notify").append(data);
         $("#notify").append("<br>");
-        console.log(data);
     });
 </script>
 </body>
